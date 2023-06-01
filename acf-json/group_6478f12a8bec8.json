@@ -1,0 +1,153 @@
+{
+    "key": "group_6478f12a8bec8",
+    "title": "Описание метки",
+    "fields": [
+        {
+            "key": "field_6478f1b6a9a81",
+            "label": "Короткое описание",
+            "name": "summary",
+            "type": "textarea",
+            "instructions": "Текст будет выводиться на странице поиска меток и на карте. Полное описание добавьте в редактор выше",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 160,
+            "rows": "",
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_6478f134485f6",
+            "label": "Основное фото",
+            "name": "main_photo",
+            "type": "image",
+            "instructions": "Фото будет отображаться рядом с заголовком",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6478f16a485f7",
+            "label": "Дополнительные фото",
+            "name": "additional_photos",
+            "type": "repeater",
+            "instructions": "Фото, которые будут отображаться на странице метки",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 3,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_6478f19ca9a80",
+                    "label": "Фото",
+                    "name": "photo",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
+        },
+        {
+            "key": "field_6478f231a9a82",
+            "label": "Координаты",
+            "name": "coordinates",
+            "type": "yandex-map",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "height": 500,
+            "map_type": "map",
+            "zoom": 10,
+            "zoom_control": 1,
+            "scroll_zoom": 1,
+            "center_lat": "55.751999",
+            "center_lng": "37.617734",
+            "return_format": "array"
+        },
+        {
+            "key": "field_64790bd0eaae0",
+            "label": "Адрес \/ Описание места",
+            "name": "place",
+            "type": "text",
+            "instructions": "Точный адрес (если имеется) или описание места",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "trash-dot"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1685656901
+}

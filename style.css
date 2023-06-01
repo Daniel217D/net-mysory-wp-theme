@@ -4396,3 +4396,15 @@ body.page-template-template-map-php {
 .custom-header-media.custom-header-media-full::before {
 	content: unset !important;
 }
+
+body:not(.home) {
+	margin-top: 50px;
+}
+
+body.admin-bar:not(.home) {
+	margin-top: 82px;
+}
+
+.site-content {
+	padding-top: 1em;
+}

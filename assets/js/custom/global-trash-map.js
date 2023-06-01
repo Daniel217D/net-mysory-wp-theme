@@ -75,6 +75,14 @@ jQuery(async function ($) {
 
         myMap.geoObjects.add(clusterer);
 
+        myMap.behaviors.disable('scrollZoom')
+        myMap.controls.remove('trafficControl');
+        myMap.controls.remove('searchControl');
+        myMap.controls.remove('geolocationControl');
+        myMap.controls.remove('toolBar');
+        myMap.controls.remove('toolBarSeparator');
+        myMap.controls.remove('typeSelector');
+
         if (coordinates.lat === 0 && coordinates.lon === 0) {
             myMap.setBounds(clusterer.getBounds(), {
                 checkZoomRange: true
