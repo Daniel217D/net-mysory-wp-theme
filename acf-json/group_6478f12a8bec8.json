@@ -108,8 +108,8 @@
             "zoom": 10,
             "zoom_control": 1,
             "scroll_zoom": 1,
-            "center_lat": "55.751999",
-            "center_lng": "37.617734",
+            "center_lat": "",
+            "center_lng": "",
             "return_format": "array"
         },
         {
@@ -149,5 +149,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1685984569
+    "modified": 1685987177
 }

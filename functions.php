@@ -497,6 +497,7 @@ function net_mysory_scripts() {
 	wp_enqueue_script( 'net_mysory-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '20211130', true );
 
 	wp_enqueue_script( 'net_mysory-global-trash-map', get_theme_file_uri( '/assets/js/custom/global-trash-map.js' ), array( 'jquery' ), '20211130', true );
+	wp_localize_script( 'net_mysory-global-trash-map', 'trash_dots', get_trash_dots() );
 	wp_enqueue_script( 'net_mysory-post-trash-map', get_theme_file_uri( '/assets/js/custom/post-trash-map.js' ), array( 'jquery' ), '20211130', true );
 
 	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.3', true );

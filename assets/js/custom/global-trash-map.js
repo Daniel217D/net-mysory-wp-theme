@@ -3,7 +3,7 @@ jQuery(async function ($) {
         e.preventDefault();
         return false;
     } )
-    
+
     const mapEl = document.getElementById('trash-global-map');
 
     if (!mapEl) {
@@ -38,7 +38,8 @@ jQuery(async function ($) {
 
         var myMap = new ymaps.Map('trash-global-map', {
             center: [coordinates['lat'], coordinates['lon']],
-            zoom: 10
+            zoom: 10,
+            height: 100
         }, {
             searchControlProvider: 'yandex#search'
         });
@@ -65,20 +66,24 @@ jQuery(async function ($) {
             geoObjectHideIconOnBalloonOpen: false
         })
 
-        for (let i = 1; i <= 10; i++) {
-            clusterer.add(new ymaps.Placemark([52.65 + i / 50, 39.21], {
-                iconContent: i,
-                iconCaption: 'time',
-                hintContent: 'Нажмите для подробностей',
-                balloonContentHeader: '<a href="#" >Title</a>',
-                balloonContentBody: '<a href="#" >Text + image</a>',
-                balloonContentFooter: 'Coordinates',
-                balloonContent: `<div style="background-color: white;width: 100px;height: 100px;"></div>`
-            }, {
-                preset: 'islands#icon',
-                iconColor: '#fb213c'
-            }))
-        }
+        Object.values( window.trash_dots || {} ).forEach(function (dot) {
+            try {
+                clusterer.add(new ymaps.Placemark(dot.coordinates, {
+                    iconContent: '',
+                    iconCaption: dot.time,
+                    hintContent: 'Подробнее',
+                    balloonContentHeader:`<a href="${dot.link}" >${dot.title}</a>`,
+                    balloonContentBody: `<a href="${dot.link}" ><img src="${dot.img}" style="width:140px;float: left; margin-right: 7px">${dot.desc}</a>`,
+                    balloonContentFooter: dot.address,
+                    balloonContent: `<div style="background-color: white;width: 100px;height: 100px;"></div>`
+                }, {
+                    preset: 'islands#icon',
+                    iconColor: '#fb213c'
+                }))
+            } catch (e) {
+                console.log(e)
+            }
+        })
 
         myMap.geoObjects.add(clusterer);
 

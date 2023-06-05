@@ -14,6 +14,7 @@ get_header(); ?>
 
 
 <div class="wrap">
+
     <div class="tags" style="display:flex;flex-wrap: wrap;margin: -5px -5px 20px;">
         <?php
         foreach ( get_term_children( get_queried_object()->term_id, 'cities' ) ?: [] as $term_child_id ) :
