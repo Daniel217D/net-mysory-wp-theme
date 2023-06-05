@@ -24,7 +24,7 @@ get_header(); ?>
 		</header>
 	<?php else : ?>
 	<header class="page-header">
-		<h2 class="page-title"><?php _e( 'Posts', 'net_mysory' ); ?></h2>
+		<h2 class="page-title">Новости</h2>
 	</header>
 	<?php endif; ?>
 

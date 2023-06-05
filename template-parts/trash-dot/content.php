@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying audio posts
+ * Template part for displaying posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -14,9 +14,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
-	if ( is_sticky() && is_home() ) {
+	if ( is_sticky() && is_home() ) :
 		echo net_mysory_get_svg( array( 'icon' => 'thumb-tack' ) );
-	}
+	endif;
 	?>
 	<header class="entry-header">
 		<?php
@@ -41,17 +41,6 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<?php
-		$content = apply_filters( 'the_content', get_the_content() );
-		$audio   = false;
-
-		// Only get audio from the content if a playlist isn't present.
-	if ( false === strpos( $content, 'wp-playlist-script' ) ) {
-		$audio = get_media_embedded_in_content( $content, array( 'audio' ) );
-	}
-
-	?>
-
 	<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>">
@@ -60,43 +49,21 @@
 		</div><!-- .post-thumbnail -->
 	<?php endif; ?>
 
-	<div class="entry-content">
-
+	<a class="entry-content" style="display:block;" href="<?php echo esc_url( get_permalink() ) ?>">
+        <img src="<?php echo get_field( 'main_photo' ) ?>" style="width: 20%; padding-right: 10px; padding-bottom: 10px; float:left">
 		<?php
-		if ( ! is_single() ) {
+        echo get_field( 'summary' );
 
-			// If not a single post, highlight the audio file.
-			if ( ! empty( $audio ) ) {
-				foreach ( $audio as $audio_html ) {
-					echo '<div class="entry-audio">';
-						echo $audio_html;
-					echo '</div><!-- .entry-audio -->';
-				}
-			}
-		}
-
-		if ( is_single() || empty( $audio ) ) {
-
-			the_content(
-				sprintf(
-					/* translators: %s: Post title. Only visible to screen readers. */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'net_mysory' ),
-					get_the_title()
-				)
-			);
-
-			wp_link_pages(
-				array(
-					'before'      => '<div class="page-links">' . __( 'Pages:', 'net_mysory' ),
-					'after'       => '</div>',
-					'link_before' => '<span class="page-number">',
-					'link_after'  => '</span>',
-				)
-			);
-		}
+		wp_link_pages(
+			array(
+				'before'      => '<div class="page-links">' . __( 'Pages:', 'net_mysory' ),
+				'after'       => '</div>',
+				'link_before' => '<span class="page-number">',
+				'link_after'  => '</span>',
+			)
+		);
 		?>
-
-	</div><!-- .entry-content -->
+	</a><!-- .entry-content -->
 
 	<?php
 	if ( is_single() ) {

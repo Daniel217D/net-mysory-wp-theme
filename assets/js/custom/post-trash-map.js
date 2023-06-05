@@ -1,22 +1,26 @@
-jQuery(async function ($) {
+jQuery(async function () {
     const mapEl = document.getElementById('map-in-post');
 
+    console.log('321321')
     if (!mapEl) {
         return;
     }
+    console.log('321321')
 
     let data;
 
+    console.log('321321')
     try {
         data = JSON.parse(mapEl.getAttribute('data-coords'))
     } catch (e) {
         data = ''
     }
 
+    console.log('321321')
     if (!data) {
         return;
     }
-
+    console.log('321321')
     ymaps.ready(function () {
         mapEl.classList.remove('loading');
 

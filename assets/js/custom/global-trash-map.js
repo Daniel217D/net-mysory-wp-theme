@@ -1,4 +1,9 @@
 jQuery(async function ($) {
+    $( '#top-menu [href="#"]' ).on( 'click', function (e){
+        e.preventDefault();
+        return false;
+    } )
+    
     const mapEl = document.getElementById('trash-global-map');
 
     if (!mapEl) {
@@ -26,7 +31,9 @@ jQuery(async function ($) {
         }
     }
 
-    ymaps.ready(function () {
+    ymaps.ready(init);
+
+    function init() {
         mapEl.classList.remove('loading');
 
         var myMap = new ymaps.Map('trash-global-map', {
@@ -75,7 +82,6 @@ jQuery(async function ($) {
 
         myMap.geoObjects.add(clusterer);
 
-        myMap.behaviors.disable('scrollZoom')
         myMap.controls.remove('trafficControl');
         myMap.controls.remove('searchControl');
         myMap.controls.remove('geolocationControl');
@@ -89,5 +95,5 @@ jQuery(async function ($) {
             });
         }
 
-    });
+    }
 })
